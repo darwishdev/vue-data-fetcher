@@ -1,7 +1,34 @@
 {
   "name": "vue-data-fetcher",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "author": "ahmeddarwish",
+  "license": "ISC",
+  "description": "Vue Data Fetcher is a collection of composable functions that provide utility functionalities for common tasks in Vue.js projects. This package is designed to simplify and streamline the development process by encapsulating complex logic into reusable composable functions.",
+  "keywords": [
+    "Vue",
+    "Composables",
+    "Data Fetching",
+    "State Management",
+    "Reactivity",
+    "Asynchronous",
+    "API",
+    "Fetch",
+    "Promises",
+    "Loading",
+    "Error Handling",
+    "Data Handling",
+    "Vue Composition API",
+    "Reactive Programming",
+    "TypeScript"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
