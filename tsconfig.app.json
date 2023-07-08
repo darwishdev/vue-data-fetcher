@@ -12,6 +12,7 @@
   "compilerOptions": {
     "composite": true,
     "noImplicitAny": false,
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": [
