@@ -28,7 +28,12 @@ const apiClient: ApiClient = {
     rolesList: async (): Promise<RolesListResponse> => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         return rolesListResponse;
-    }
+    },
+    rolesListWithErr: async (): Promise<RolesListResponse> => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        throw new Error('Failed to fetch roles list');
+    },
 };
 
 export default apiClient;

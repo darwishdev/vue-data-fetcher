@@ -17,4 +17,5 @@ export interface RolesListResponse {
 
 export interface ApiClient {
     rolesList: (request: RolesListRequest) => Promise<RolesListResponse>
+    rolesListWithErr: (request: RolesListRequest) => Promise<RolesListResponse>
 }
