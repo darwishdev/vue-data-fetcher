@@ -17,51 +17,42 @@ To use the Vue Data Fetcher package in your Vue.js project, you can import the i
 ### Here's an example of how to import and use the `useDataFetcherList` composable:
 
 ```vue
-<template>
-  <div>
-    <!-- Your template code here -->
-
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
-    <div v-else>
-      <!-- Render your fetched data here -->
-      {{ responseData }}
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref, onBeforeMount } from "vue";
-import { useDataFetcherList } from "vue-data-fetcher";
-const { responseData, loading, error, fetchData } = useDataFetcherList(
-  fetchDataFunction,
-  request
-);
+<script setup lang="ts">
+import apiClient from '@/api/ApiMock'
+import type { RolesListResponse, RolesListRequest } from '@/api/ApiTypes'
+import { useDataFetcherList } from 'vue-data-fetcher'
+const { responseData, loading, error } = useDataFetcherList<RolesListRequest, RolesListResponse>(
+  apiClient.rolesList,
+  {} as RolesListRequest
+)
 </script>
+<template>
+  <h2 class="loading" v-if="loading">loading</h2>
+  <h2 v-else-if="error">
+    {{ error }}
+  </h2>
+  <h2 class="response" v-else>{{ JSON.stringify(responseData) }}</h2>
+</template>
 ```
 
 ### Here's an example of how to import and use the `useDataFetcherFind` composable:
 
 ```vue
-<template>
-  <div>
-    <!-- Your template code here -->
+<script setup lang="ts">
+import apiClient from '@/api/ApiMock'
+import type { RoleFindRequest, RoleFindResponse } from '../api/ApiTypes'
+import { useDataFetcherFind } from 'vue-data-fetcher'
 
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
-    <div v-else>
-      <!-- Render your fetched data here -->
-      {{ responseData }}
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref, onBeforeMount } from "vue";
-import { useDataFetcherList } from "vue-data-fetcher";
-const { responseData, loading, error, fetchData } = useDataFetcherList(
-  fetchDataFunction,
-  request
-);
+const { responseData, loading, error } = useDataFetcherFind<RoleFindRequest, RoleFindResponse>(
+  apiClient.roleFind,
+  'roleId'
+)
 </script>
+<template>
+  <h2 class="loading" v-if="loading">loading</h2>
+  <h2 v-else-if="error">
+    {{ error }}
+  </h2>
+  <h2 class="response" v-else>{{ JSON.stringify(responseData) }}</h2>
+</template>
 ```
