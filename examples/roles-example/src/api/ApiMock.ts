@@ -1,4 +1,10 @@
-import type { RolesListResponse, ApiClient } from './ApiTypes'
+import type { RolesListResponse, ApiClient, RoleFindRequest, RoleFindResponse } from './ApiTypes'
+export const roleFindResponse: RoleFindResponse = {
+    roleId: 1,
+    roleName: "super admin",
+    roleUsers: 5,
+    rolePermissions: 5
+};
 
 export const rolesListResponse: RolesListResponse = {
     roles: [
@@ -34,6 +40,20 @@ const apiClient: ApiClient = {
 
         throw new Error('Failed to fetch roles list');
     },
+    roleFind: async (request: RoleFindRequest): Promise<RoleFindResponse> => {
+        // Simulating an API request delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const response = roleFindResponse
+        response.roleId = request.roleId
+
+        return response;
+    },
+    roleFindWithErr: async (request: RoleFindRequest): Promise<RoleFindResponse> => {
+        // Simulating an API request delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        throw new Error('Failed to fetch roles list');
+
+    }
 };
 
 export default apiClient;

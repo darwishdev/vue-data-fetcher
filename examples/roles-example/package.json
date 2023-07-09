@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-data-fetcher": "^0.0.7",
+    "vue-data-fetcher": "^0.1.2",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {

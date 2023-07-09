@@ -10,6 +10,7 @@ tsconfig.json
 tsconfig.node.json
 tsconfig.vitest.json
 vite.config.ts
+examples
 vitest.config.ts
 .eslintrc.cjs   
 .index.html
