@@ -11,12 +11,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
@@ -30,4 +31,4 @@ jobs:
       - name: Publish to npm
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: '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'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
