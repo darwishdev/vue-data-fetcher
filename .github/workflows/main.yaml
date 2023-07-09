@@ -24,7 +24,10 @@ jobs:
       - name: Run tests
         run: npm run test:unit
 
+      - name: Run build
+        run: npm run build
+
       - name: Publish to npm
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: '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'
