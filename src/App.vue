@@ -6,7 +6,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <nav>
-      <RouterLink to="/">Data List</RouterLink>
+      <RouterLink to="/roles">Data List</RouterLink> ||
+      <RouterLink to="/roles/1">Data Find</RouterLink>
     </nav>
   </header>
 

@@ -14,3 +14,4 @@ export function withSetup(hook) {
 
     return [result, app];
 }
+
